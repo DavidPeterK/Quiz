@@ -16,4 +16,49 @@ body {
     width: 100vw;
     height: inherit;
     object-fit: cover;
+    object-position: center;
+    z-index: -1;
+}
+
+.gameArea {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 100px;
+    bottom: 100px;
+    left: 50px;
+    right: 50px;
+    gap: 20px;
+}
+
+.questField {
+    width: 100%;
+    background-color: black;
+    color: white;
+    border-radius: 15px;
+    border: 1px solid rgba(211, 211, 211, 0.3);
+    padding: 15px;
+    text-align: center;
+
+}
+
+.answerField {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.answer {
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    padding: 15px;
+    border-radius: 15px;
+    border: 1px solid rgba(211, 211, 211, 0.3);
+    gap: 10px;
 }
