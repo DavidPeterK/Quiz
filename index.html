@@ -5,62 +5,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz</title>
-    <link rel="shortcut icon" href="./src/media/icon/brain result.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./src/media/logo/logo-nobackground-200.png" type="image/x-icon">
     <!--Bootstrap files-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    <!--My files--->
+    <link rel="stylesheet" href="./src/css/style.css">
+    <link rel="stylesheet" href="./src/css/hover.css">
+    <link rel="stylesheet" href="./src/css/media.css">
+    <script src="./src/js/funktionen.js"></script>
+    <script src="./src/js/render.js"></script>
+    <script src="./src/js/templates.js"></script>
+</head>
+
+<body onload="renderStart()">
+    <section class="backgroundSection">
+        <img class="background" src="./src/media/pic/pexels-markus-spiske-1089438.jpg">
+        <div class="gameArea" id="gameSection">
+        </div>
+    </section>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"
         integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa"
         crossorigin="anonymous"></script>
-    <!--My files--->
-    <link rel="stylesheet" href="./src/css/style.css">
-    <link rel="stylesheet" href="./src/css/hover.css">
-    <link rel="stylesheet" href="./src/css/media.css">
-    <script src="./src/js/funktionen.js"></script>
-    <script src="./src/js/redThread.js"></script>
-    <script src="./src/js/render.js"></script>
-    <script src="./src/js/templates.js"></script>
-</head>
-
-<body>
-    <section class="backgroundSection">
-        <img class="background" src="./src/media/pic/pexels-markus-spiske-1089438.jpg">
-        <div class="gameArea">
-            <div class="questField">
-                <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero iusto delectus aut fugiat ut
-                    cupiditate.</h3>
-            </div>
-            <div class="answerField">
-                <div class="answer">
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel, expedita velit fugit itaque,
-                        aperiam sunt eum eligendi autem doloribus consequuntur perferendis cum ea nulla? Voluptate aut
-                        minima quisquam laboriosam! Sint.</p>
-                    <button class="btn btn-info">Antwort 1</button>
-                </div>
-                <div class="answer">
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel, expedita velit fugit itaque,
-                        aperiam sunt eum eligendi autem doloribus consequuntur perferendis cum ea nulla? Voluptate aut
-                        minima quisquam laboriosam! Sint.</p>
-                    <button class="btn btn-info">Antwort 2</button>
-                </div>
-                <div class="answer">
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel, expedita velit fugit itaque,
-                        aperiam sunt eum eligendi autem doloribus consequuntur perferendis cum ea nulla? Voluptate aut
-                        minima quisquam laboriosam! Sint.</p>
-                    <button class="btn btn-info">Antwort 3</button>
-                </div>
-                <div class="answer">
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel, expedita velit fugit itaque,
-                        aperiam sunt eum eligendi autem doloribus consequuntur perferendis cum ea nulla? Voluptate aut
-                        minima quisquam laboriosam! Sint.</p>
-                    <button class="btn btn-info">Antwort 4</button>
-                </div>
-            </div>
-        </div>
-    </section>
 </body>
 
 </html>
