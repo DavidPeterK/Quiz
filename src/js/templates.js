@@ -31,28 +31,35 @@ let CaskadingArray = [
     }
 ]
 
-let scoreBoard = [
-    {
-        'name': [],
-        'rightAnswer': [0],
-        'failAnswer': [0],
-        'class': [],
-
-    }
-]
+let nameScore = [];
+let rightAnswerScore = [];
+let failAnswerScore = [];
+let classScore = [];
 let clickDiv = [{ 'click': true }]
 let questNumber = 0;
 let audioWin = new Audio('src/media/audio/cash-register-purchase-87313.mp3');
 let audioFail = new Audio('src/media/audio/sadwhisle-91469.mp3');
 let audioClick = new Audio('src/media/audio/click.mp3');
-
+let audioApplaus = new Audio('src/media/audio/applaus.mp3')
+load();
 
 function returnStart() {
     return /*html*/`
     <div class="start">
     <img src="./src/media/logo/logo-nobackground-200.png" alt="">
-    <button type="button" onclick="startGame()" class="btn btn-primary">Start</button>
-    <button type="button" class="btn btn-primary">Score</button>
+    <button type="button" onclick="startName()" class="btn btn-primary">Start</button>
+    <button type="button" onclick="renderScoreBoard()" class="btn btn-primary">Score</button>
+    </div>
+    `;
+}
+function returnName() {
+    return /*html*/`
+    <div class="start">
+    <img src="./src/media/logo/logo-nobackground-200.png">
+        <form onsubmit="renderSelect(); return false;">
+            <input id="name" pattern="[A-Za-z0-9]+" required minlength="2" maxlength="20" placeholder="Namen eingeben" type="text">
+            <button class="btn btn-primary">Weiter</button>
+        </form>
     </div>
     `;
 }
@@ -60,11 +67,11 @@ function returnStart() {
 function returnSelect() {
     return /*html*/`
     <div class="start">
-    <img src="./src/media/logo/logo-nobackground-200.png" alt="">
+    <img src="./src/media/logo/logo-nobackground-200.png">
         <div class="dFlex">
-            <button type="button" onclick="startHTML()" class="btn btn-primary">HTML</button>
-            <button type="button" onclick="" class="btn btn-primary">CSS</button>
-            <button type="button" onclick="" class="btn btn-primary">Javascript</button>
+            <button id="buttonHTML" type="button" onclick="startHTML()" class="btn btn-primary">HTML</button>
+            <button id="buttonCSS" type="button" onclick="startCSS()" class="btn btn-primary">CSS</button>
+            <button id="buttonJS" type="button" onclick="startJS()" class="btn btn-primary">Javascript</button>
         </div>
     </div>
 `;
@@ -80,7 +87,7 @@ function returnQuest(htmlAnswer1, htmlAnswer2, htmlAnswer3, htmlAnswer4, htmlFra
         <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: ${returnProgress()}%"></div>
     </div>
     <div class="progressTextDiv">
-        <p>${returnQuestNumber()} / 6</p>
+        <p>${returnQuestNumber()} / ${returnQuestLengthHTML()}</p>
         <button disabled onclick="nextQuestHTML()" id="nextButton" type="button" class="btn btn-primary">Weiter</button>
         <p>HTML</p>
     </div>
@@ -103,6 +110,46 @@ function returnQuest(htmlAnswer1, htmlAnswer2, htmlAnswer3, htmlAnswer4, htmlFra
         <div>${htmlAnswer4}</div>
     </div>
 </div>
+`;
+}
+
+function returnScoreBoard() {
+    return /*html*/`
+    <div class="start">
+        <img class="scoreIcon" src="./src/media/pic/business-4271251_640.png">
+        <h4>Scoreboard</h4>
+        <div>
+        <table>
+            <tbody>
+                <tr>
+                    <th>Name</th>
+                    <th>Bereich</th>
+                    <th>Punkte von 6</th>
+                </tr>
+            </tbody>
+            <tbody id="scoreTable">
+            </tbody>
+        </table>
+
+        </div>
+        <button class="btn btn-primary" onclick="renderStart()">Hauptmenü</button>
+    </div>
+`;
+}
+
+function returnFinish() {
+    return /*html*/`
+    <div class="start">
+        <img class="winIcon" src="./src/media/pic/cup-2015198_640.png">
+        <h4>Glückwunsch</h4>
+        <div class="WinText">
+            <p>Du hast <b>${rightAnswerScore[rightAnswerScore.length - 1]}</b>
+             von <b>6</b> Fragen in <b>${classScore[classScore.length - 1]}</b>
+              richtig gelöst!</p>
+            <p>Dein Ergebnis wird im Scoreboard gespeichert</p>
+        </div>
+        <button class="btn btn-primary" onclick="renderStart()">Hauptmenü</button>
+    </div>
 `;
 }
 
